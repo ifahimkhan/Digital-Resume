@@ -122,6 +122,12 @@ li{
     border-radius: 5px;
     padding: 0.5em 1em;
     align-items: center;
+    cursor: grab;
+    transition: 1s;
+}
+.card--techstack :hover{
+    color: rgb(30, 190,214);
+
 }
 
 .card--project{
