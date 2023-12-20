@@ -6,11 +6,11 @@ View live demo here using github pages: [Live Demo](https://ifahimkhan.github.io
 
 ## Dark Mode Preview
 
-<img src="assets\images\dark mode preview.PNG">
+<img src="assets\images\dark mode preview.png">
 
 ## Light Mode Preview
 
-<img src="assets\images\light mode preview.PNG">
+<img src="assets\images\light mode preview.png">
 
 ## Switching between color themes
 
