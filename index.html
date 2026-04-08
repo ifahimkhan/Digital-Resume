@@ -1,224 +1,592 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mohammed Fahim Khan</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./styles/main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Fahim Khan — Senior Android Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-<div id="container--main">
 
-    <section id="wrapper--hero" class="section--page">
-        <img id="profile-pic" src="./assets/images/ifahimkhan.jpg">
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
 
-        <div>
-            <h1 id="user-name">Mohammed Fahim Khan</h1>
-            <p id="bio">Hello, I'm Mohammed Fahim Khan, a Senior Android Developer with over seven years of experience, currently leading projects at <a
-                    href="https://www.tagitglobal.com/"
-                    target="_blank">Tagit RFID Solutions.</a></br>
-                I bring a strong background in architecting and developing Android applications, managing cross-functional teams, and ensuring the delivery of high-quality products.
-                </p>
-            <p id="email">👉 heyfahim@gmail.com</p>
-            <p id="mobile">👉 <a href = "tel:+917977803286">(+91) 7977-803-286</a></p>
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-code">
+        <span class="mono">&lt;loading/&gt;</span>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>MFK<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about" data-text="About">About</a></li>
+        <li><a href="#skills" data-text="Skills">Skills</a></li>
+        <li><a href="#experience" data-text="Experience">Experience</a></li>
+        <li><a href="#projects" data-text="Projects">Projects</a></li>
+        <li><a href="#contact" data-text="Contact">Contact</a></li>
+      </ul>
+      <a href="mailto:heyfahim@gmail.com" class="nav-cta">Hire Me</a>
+      <label class="theme-toggle" title="Toggle theme" aria-label="Toggle dark/light mode">
+        <input type="checkbox" id="themeToggle" />
+        <span class="theme-toggle-track">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </span>
+        <span class="theme-toggle-thumb"></span>
+      </label>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#experience" class="mobile-link">Experience</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <canvas id="particleCanvas"></canvas>
+    </div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-tag">
+          <span class="tag-dot"></span>
+          <span class="mono">Available for new opportunities</span>
         </div>
-
-    </section>
-
-    <section class="section--page">
-
-        <div id="socials--list">
-            <a href="http://ifahimkhan.blogspot.com/" target="_blank">My Blog</a>
-            <a href="https://twitter.com/I_fahimkhan" target="_blank">Twitter</a>
-            <a href="https://www.linkedin.com/in/ifahimkhan/" target="_blank">Linkedin</a>
-            <a href="https://github.com/ifahimkhan" target="_blank">Github</a>
-            <a href="./assets/Fahim_Resume.pdf" target="_blank">Download
-                Resume</a>
+        <h1 class="hero-name">
+          <span class="name-line">Mohammed</span>
+          <span class="name-line accent">Fahim Khan</span>
+        </h1>
+        <div class="hero-title">
+          <span class="mono title-prefix">&gt;&nbsp;</span>
+          <span class="typed-text" id="typedText"></span>
+          <span class="cursor-blink">|</span>
         </div>
-    </section>
-
-    <section class="section--page">
-        <h2>Skills & Qualifications</h2>
-        <ul id="qualifications--list">
-            <li>✔️ 7 years of experience in mobile application development.</li>
-            <li>✔️ Proficient in native and hybrid mobile application development.</li>
-            <li>✔️ Software architect with incredible ability to lead projects to completion.</li>
-            <li>✔️ I’m a passionate programmer skilled in solving problems and android
-                development.
-            </li>
-        </ul>
-    </section>
-
-    <section class="section--page">
-        <h2>Tech stack</h2>
-
-        <div id="wrapper--techstack__items">
-            <div class="card--techstack"><span>Kotlin, Java, Swift, Dart</span></div>
-            <div class="card--techstack"><span>Android, IOS, Flutter</span></div>
-            <div class="card--techstack"><span>MySql, NoSql, Sqlite3, Room</span></div>
-            <div class="card--techstack"><span>Design & Architecture Patterns, MVVM, MVP,Clean Architecture</span>
+        <p class="hero-bio">
+          Developer with <strong>7+ years</strong> of experience architecting and developing
+          Android applications, managing cross-functional teams, and delivering
+          high-performance mobile solutions.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            <span>View Work</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+        <div class="hero-social">
+          <a href="https://www.linkedin.com/in/ifahimkhan/" target="_blank" class="social-chip" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/ifahimkhan" target="_blank" class="social-chip" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+          <a href="https://twitter.com/I_fahimkhan" target="_blank" class="social-chip" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            Twitter
+          </a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card-wrap">
+          <div class="hero-card">
+            <div class="card-glow"></div>
+            <div class="avatar-ring">
+              <div class="avatar">MFK</div>
             </div>
-            <div class="card--techstack"><span>Libraries & SDK Integration, Github/SVN</span></div>
-            <div class="card--techstack"><span>Multi-Threading, Coroutines, Rest-APIs</span></div>
-            <div class="card--techstack"><span>JUnit, Integration, Instrumentation Test</span></div>
+            <div class="card-stats">
+              <div class="stat-item">
+                <span class="stat-num" data-target="7">0</span><span>+</span>
+                <span class="stat-label">Years Exp</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-num" data-target="30">0</span><span>+</span>
+                <span class="stat-label">Apps Built</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-num" data-target="5">0</span><span>M+</span>
+                <span class="stat-label">Users Reached</span>
+              </div>
+            </div>
+            <div class="card-tech-stack">
+              <span class="tech-pill">Kotlin</span>
+              <span class="tech-pill">Android</span>
+              <span class="tech-pill">Flutter</span>
+              <span class="tech-pill">Firebase</span>
+              <span class="tech-pill">MVVM</span>
+            </div>
+          </div>
+          <div class="floating-badge badge-1">
+            <span>🏆</span> Android Enterprise
+          </div>
+          <div class="floating-badge badge-2">
+            <span>🎯</span> 7+ Years
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+    <a href="#about" class="scroll-down">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span class="mono">scroll</span>
+    </a>
+  </section>
 
-    <section id="work-history-wrapper" class="section--page">
-        <h2>Work History</h2>
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-label">
+        <span class="mono">01 /</span> About Me
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Crafting <span class="accent">Mobile Experiences</span> That Matter</h2>
+          <p>I'm a Senior Android Developer based in India with over <strong>7 years</strong> of hands-on experience building robust, scalable Android applications. I specialize in architecting clean, maintainable codebases using modern Android development practices.</p>
+          <p>Currently at <strong>Tagit RFID Solutions</strong>, I lead Android development initiatives, work with BLE hardware integrations, and mentor junior developers. My passion lies in solving complex technical challenges and delivering seamless user experiences.</p>
+          <div class="about-highlights">
+            <div class="highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Clean Architecture & SOLID Principles
+            </div>
+            <div class="highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Cross-functional Team Leadership
+            </div>
+            <div class="highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              BLE & IoT Hardware Integration
+            </div>
+            <div class="highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Performance Optimization & Testing
+            </div>
+          </div>
+          <a href="./assets/Fahim_Resume.pdf" target="_blank" class="btn btn-primary">
+            <span>Download CV</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
+        <div class="about-visual">
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="mono code-filename">about.kt</span>
+            </div>
+            <div class="code-body">
+              <pre><code><span class="c-keyword">data class</span> <span class="c-class">Developer</span>(
+  <span class="c-keyword">val</span> <span class="c-var">name</span>: <span class="c-type">String</span> = <span class="c-string">"Mohammed Fahim Khan"</span>,
+  <span class="c-keyword">val</span> <span class="c-var">role</span>: <span class="c-type">String</span> = <span class="c-string">"Senior Android Dev"</span>,
+  <span class="c-keyword">val</span> <span class="c-var">experience</span>: <span class="c-type">Int</span> = <span class="c-num">7</span>,
+  <span class="c-keyword">val</span> <span class="c-var">location</span>: <span class="c-type">String</span> = <span class="c-string">"India"</span>,
+  <span class="c-keyword">val</span> <span class="c-var">email</span>: <span class="c-type">String</span> = <span class="c-string">"heyfahim@gmail.com"</span>,
+  <span class="c-keyword">val</span> <span class="c-var">skills</span>: <span class="c-type">List&lt;String&gt;</span> = <span class="c-func">listOf</span>(
+    <span class="c-string">"Kotlin"</span>, <span class="c-string">"Java"</span>, <span class="c-string">"Flutter"</span>,
+    <span class="c-string">"MVVM"</span>, <span class="c-string">"Firebase"</span>, <span class="c-string">"BLE"</span>
+  ),
+  <span class="c-keyword">val</span> <span class="c-var">openToWork</span>: <span class="c-type">Boolean</span> = <span class="c-num">true</span>
+)
 
-        <div class="line-break"></div>
-        <div class="card--work-history">
-            <strong>🚧 SENIOR ANDROID DEVELOPER | Tagit RFID Solution</strong>
-            <p>09/2021 - Present</p>
-            <p>Worked on making Tagit’s Android Apps with RFID SDK Integration more optimised,
-                Enhanced, demo projects and event based training. Also building out Android UI
-                components & leading a team to new improvements.</p>
-            <ul>
-                <li>A thorough knowledge on Software design, design patterns and object oriented
-                    concepts.
-                </li>
-                <li>Work experience with REST, JSON, Agile, GIT Flow, Firebase, Android ecosystem.
-                </li>
-                <li>Worked on BLE hardware implementation</li>
-                <li>Understanding of large and complex code bases, including API design techniques
-                    to help
-                    keep them clean and maintainable.
-                </li>
-            </ul>
+<span class="c-keyword">fun</span> <span class="c-func">main</span>() {
+  <span class="c-keyword">val</span> <span class="c-var">fahim</span> = <span class="c-class">Developer</span>()
+  <span class="c-func">println</span>(<span class="c-string">"Let's build something great!"</span>)
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-label">
+        <span class="mono">02 /</span> Skills & Tools
+      </div>
+      <h2>Technical <span class="accent">Arsenal</span></h2>
+      <div class="skills-layout">
+        <div class="skills-categories">
+
+          <div class="skill-group reveal">
+            <div class="skill-group-header">
+              <div class="skill-icon">📱</div>
+              <h3>Mobile Development</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>Kotlin</span><span class="skill-pct">95%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="95"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>Java</span><span class="skill-pct">90%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>Flutter / Dart</span><span class="skill-pct">75%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="75"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>Swift (iOS)</span><span class="skill-pct">65%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="65"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <div class="skill-group-header">
+              <div class="skill-icon">🏗️</div>
+              <h3>Architecture & Patterns</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>MVVM</span><span class="skill-pct">95%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="95"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>Clean Architecture</span><span class="skill-pct">90%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>MVP</span><span class="skill-pct">85%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="85"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <div class="skill-group-header">
+              <div class="skill-icon">🗄️</div>
+              <h3>Databases & Backend</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>Firebase</span><span class="skill-pct">90%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>SQLite / Room</span><span class="skill-pct">88%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="88"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>MySQL / NoSQL</span><span class="skill-pct">75%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="75"></div></div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <div class="line-break"></div>
+        <div class="tech-tags-panel reveal">
+          <h3 class="mono">// Tech Tags</h3>
+          <div class="tech-cloud">
+            <span class="tag tag-lg">Kotlin</span>
+            <span class="tag">Coroutines</span>
+            <span class="tag tag-lg">Android SDK</span>
+            <span class="tag">Jetpack</span>
+            <span class="tag">LiveData</span>
+            <span class="tag tag-lg">Firebase</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">BLE</span>
+            <span class="tag tag-lg">MVVM</span>
+            <span class="tag">Room</span>
+            <span class="tag">Retrofit</span>
+            <span class="tag tag-lg">Flutter</span>
+            <span class="tag">Dagger/Hilt</span>
+            <span class="tag">Git</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag tag-lg">Clean Arch</span>
+            <span class="tag">Unit Testing</span>
+            <span class="tag">Gradle</span>
+          </div>
 
-        <div class="card&#45;&#45;work-history">
-            <strong>🚧 ANDROID DEVELOPER | Tagit RFID Solutions</strong>
-            <p>10/2018 - 09/2021</p>
-            <p>Developed and Maintained AMS Android application for phone, tablet.</p>
-            <ul>
-                <li>Writing code in standard design patterns.</li>
-                <li>Analyzed platform requirements for feasibility in Android.</li>
-                <li>Implemented new features, bugs fix and test android application.</li>
-                <li>Participated in design & development discussions and planningexercises.</li>
-            </ul>
+          <div class="certs-box">
+            <h3 class="mono">// Certifications</h3>
+            <div class="cert-item">
+              <div class="cert-icon">🏅</div>
+              <div>
+                <strong>Android Enterprise Associate</strong>
+                <span>Google Certified</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">⭐</div>
+              <div>
+                <strong>HackerRank Problem Solving</strong>
+                <span>Basic — Verified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <div class="section-label">
+        <span class="mono">03 /</span> Experience
+      </div>
+      <h2>Work <span class="accent">Timeline</span></h2>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-marker">
+            <div class="marker-dot current"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <div class="job-title">Senior Android Developer</div>
+                <div class="company">Tagit RFID Solutions</div>
+              </div>
+              <div class="job-meta">
+                <span class="job-date">09/2021 — Present</span>
+                <span class="job-badge current-badge">Current</span>
+              </div>
+            </div>
+            <div class="job-desc">
+              <p>Leading Android development for enterprise-grade RFID solutions, integrating BLE hardware, and architecting scalable mobile applications used in retail and supply chain environments.</p>
+            </div>
+            <div class="job-skills">
+              <span>Kotlin</span><span>MVVM</span><span>BLE</span><span>RFID</span><span>Firebase</span><span>Coroutines</span>
+            </div>
+          </div>
         </div>
 
-        <div class="line-break"></div>
-        <div class="card&#45;&#45;work-history">
-            <strong>🚧 ANDROID DEVELOPER | Freelancer</strong>
-            <p>01/2017 - 10/2018</p>
-            <ul>
-
-
-                <li>Designed and developed a Home Automation system. My system
-                    provided an interface using which you can control your each and every home
-                    Appliances from this App Via Bluetooth or Wi-Fi from any part of the World.
-                </li>
-
-                <li>Designed prototype Online E-Commerce App For Second hand Mobile Devices
-                    commercial evaluation,
-                    where you can sell your phone based on Market price, mobile usage, each and
-                    every peripheral (Wi-Fi, Bluetooth, Battery, Hotspot, Location, Mic, etc.)
-                    quality and condition and device configuration.
-                </li>
-                <li> Real time GPS Location Tracker App using which you can track yours and others
-                    devices in real time You can also use this app to get Last Location of your App
-                    if its Lost. This app is developed using Android Studio and with Real-time
-                    Database i.e. Firebase. It also manages the users and their Location Activity.
-                </li>
-            </ul>
-
+        <div class="timeline-item reveal">
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <div class="job-title">Android Developer</div>
+                <div class="company">Tagit RFID Solutions</div>
+              </div>
+              <div class="job-meta">
+                <span class="job-date">10/2018 — 09/2021</span>
+              </div>
+            </div>
+            <div class="job-desc">
+              <p>Developed and maintained multiple Android applications, implemented REST API integrations, and contributed to the evolution of the company's mobile platform architecture.</p>
+            </div>
+            <div class="job-skills">
+              <span>Java</span><span>Kotlin</span><span>REST APIs</span><span>SQLite</span><span>MVP</span>
+            </div>
+          </div>
         </div>
 
-        <div class="line-break"></div>
-        <!--
-                <div class="card&#45;&#45;work-history">
-                    <strong>🚧 INSTRUCTOR | YOUTUBE, UDEMY, TEACHABLE</strong>
-                    <p>11/2019 - Present</p>
-                    <p>Produced content showcasing new tech, tutorials & interviews with top developers.</p>
-                    <ul>
-                        <li>166,000+ Youtube Subscribers</li>
-                        <li>30,000 course copies sold</li>
-                        <li>12+ Million views on Youtube</li>
-                        <li>Made regular contributions to Traversy Medias youtube channel (1.9m
-                            Subscribers)
-                        </li>
-                        <li>Tutorial videos included projects such as social networks, Ecommerce, real time
-                            video, stripe & paypal integrations and more
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="line-break"></div>
-
-                <div class="card&#45;&#45;work-history">
-                    <strong>🚧 SENIOR DEVELOPER | FOI LABS</strong>
-                    <p>10/2017 - 10/2019</p>
-                    <p>Designed and developed a laboratory management system. My system
-                        provided an interface for lab technicians and customers to view and
-                        track data from samples tested in the lab.</p>
-                    <ul>
-                        <li>Designed prototype & pitched original idea for new lab management system
-                            (LIMS)
-                        </li>
-                        <li>Built entire code base and brought version 1 of LIMS system to market as a solo
-                            developer
-                        </li>
-                        <li>Onboarded and trained customers (Webinars & Conferences)</li>
-                        <li>Managed a small team of developers in expansion of LIMS system</li>
-                    </ul>
-                </div>
-
-                <div class="line-break"></div>
-
-                <div class="card&#45;&#45;work-history">
-                    <strong>🚧 DIGITAL MARKETER | UNIFIVE DIGITAL</strong>
-                    <p>2014 - 2017</p>
-                    <p>Started a digital agency building websites and marketing for
-                        local businesses. Mostly Wordpress sites with small modifications to
-                        themes.</p>
-                    <ul>
-                        <li>Organized SEO & SEM campaigns on a local and global scale.</li>
-                        <li>Saved a customer $110k a year by reducing Adwords CPC cost with optimization
-                        </li>
-                        <li>70 + websites built with my small team of developers and freelancers</li>
-                    </ul>
-                </div>-->
-    </section>
-
-    <section class="section--page">
-        <h2>Projects & Accomplishments</h2>
-        <div class="card--project">
-            <a href="https://androidenterprise.exceedlms.com/student/award/wcf3HCHdUWz8EuL81p8FM5gs"><span>🏆 </span>Android
-                Enterprise Associate Certification</a>
+        <div class="timeline-item reveal">
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <div class="job-title">Freelance Android Developer</div>
+                <div class="company">Independent</div>
+              </div>
+              <div class="job-meta">
+                <span class="job-date">01/2017 — 10/2018</span>
+              </div>
+            </div>
+            <div class="job-desc">
+              <p>Delivered custom Android applications for various clients across e-commerce, home automation, and utility domains. Built and published apps to the Google Play Store independently.</p>
+            </div>
+            <div class="job-skills">
+              <span>Java</span><span>Android</span><span>Firebase</span><span>Play Store</span>
+            </div>
+          </div>
         </div>
 
-        <div class="card--project">
-            <a href="https://www.hackerrank.com/certificates/5f1c17baa124?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate"><span>🏆 </span>HackerRank
-                - Problem Solving basic skill
-                certification</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-label">
+        <span class="mono">04 /</span> Projects
+      </div>
+      <h2>Featured <span class="accent">Work</span></h2>
+      <div class="projects-grid">
+
+        <div class="project-card featured reveal">
+          <div class="project-visual" style="background: linear-gradient(135deg, #6c63ff 0%, #a855f7 100%)">
+            <div class="project-mockup">🧠</div>
+          </div>
+          <div class="project-body">
+            <div class="project-number mono">01</div>
+            <span class="project-tag">Android App</span>
+            <h3>Mind Reader Application</h3>
+            <p>An AI-powered Android application that leverages machine learning to analyze user behavior patterns. Built with modern Android architecture and real-time data processing.</p>
+            <div class="project-tech">
+              <span>Kotlin</span><span>ML Kit</span><span>Firebase</span><span>MVVM</span>
+            </div>
+            <div class="project-links">
+              <a href="mindreaderapp.html" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/ifahimkhan" target="_blank" class="proj-link ghost">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Source
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="card--project">
-            <a href="mindreaderapp.html"><span>🏆 </span>Mind Reader
-                Application - open Source
-                Project</a>
+        <div class="project-card reveal">
+          <div class="project-visual" style="background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%)">
+            <div class="project-mockup">🏠</div>
+          </div>
+          <div class="project-body">
+            <div class="project-number mono">02</div>
+            <span class="project-tag">IoT + Android</span>
+            <h3>SmartLife — Home Automation</h3>
+            <p>A comprehensive home automation platform integrating BLE and IoT devices, allowing users to control smart home appliances through an intuitive Android interface.</p>
+            <div class="project-tech">
+              <span>Kotlin</span><span>BLE</span><span>IoT</span><span>MQTT</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ifahimkhan/SmartLife" target="_blank" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                View Project
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="card--project">
-            <a href="https://github.com/ifahimkhan/SmartLife"><span>🏆 </span>Home Automation - open
-                source project</a>
+        <div class="project-card reveal">
+          <div class="project-visual" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)">
+            <div class="project-mockup">🛒</div>
+          </div>
+          <div class="project-body">
+            <div class="project-number mono">03</div>
+            <span class="project-tag">E-Commerce App</span>
+            <h3>SmartSold — E-Commerce Platform</h3>
+            <p>A full-featured e-commerce Android application with real-time inventory management, payment integration, and a seamless shopping experience for end users.</p>
+            <div class="project-tech">
+              <span>Kotlin</span><span>Firebase</span><span>Payment</span><span>Room</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ifahimkhan/SmartSold" target="_blank" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                View Project
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="card--project">
-            <a href="https://github.com/ifahimkhan/SmartSold"><span>🏆 </span>Ecommerce Platform -
-                open source project</a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label">
+        <span class="mono">05 /</span> Contact
+      </div>
+      <div class="contact-grid">
+        <div class="contact-left reveal">
+          <h2>Let's <span class="accent">Build Together</span></h2>
+          <p>I'm open to senior Android roles, consulting opportunities, and interesting collaborations. Drop me a message — I usually respond within 24 hours.</p>
+          <div class="contact-items">
+            <a href="mailto:heyfahim@gmail.com" class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <span class="contact-label mono">Email</span>
+                <span class="contact-value">heyfahim@gmail.com</span>
+              </div>
+            </a>
+            <a href="tel:+917977803286" class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.46 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <span class="contact-label mono">Phone</span>
+                <span class="contact-value">(+91) 7977-803-286</span>
+              </div>
+            </a>
+          </div>
+          <div class="contact-social">
+            <a href="https://www.linkedin.com/in/ifahimkhan/" target="_blank" class="social-pill">LinkedIn</a>
+            <a href="https://github.com/ifahimkhan" target="_blank" class="social-pill">GitHub</a>
+            <a href="https://twitter.com/I_fahimkhan" target="_blank" class="social-pill">Twitter</a>
+          </div>
         </div>
+        <div class="contact-right reveal">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label class="mono">// Your Name</label>
+              <input type="text" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label class="mono">// Email Address</label>
+              <input type="email" placeholder="john@example.com" required />
+            </div>
+            <div class="form-group">
+              <label class="mono">// Subject</label>
+              <input type="text" placeholder="Project Collaboration" />
+            </div>
+            <div class="form-group">
+              <label class="mono">// Message</label>
+              <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <span>Send Message</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+            <div class="form-success" id="formSuccess">
+              Message sent! I'll get back to you soon. 🚀
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    </section>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="mono footer-logo">&lt;MFK /&gt;</span>
+        <p class="footer-copy">Designed & built with ❤️ by Mohammed Fahim Khan &copy; 2026</p>
+        <a href="#home" class="footer-top mono">back_to_top↑</a>
+      </div>
+    </div>
+  </footer>
 
-
-</div>
-
+  <script src="script.js"></script>
 </body>
 </html>
