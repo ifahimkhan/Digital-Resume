@@ -448,6 +448,13 @@ img { max-width: 100%; }
   font-weight: 700;
   font-family: var(--mono);
   color: var(--accent);
+  overflow: hidden;
+}
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .card-stats {
