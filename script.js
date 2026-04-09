@@ -250,7 +250,7 @@ function initAnimations() {
         if (entry.target.classList.contains('skill-group')) animateSkillBars();
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 

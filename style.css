@@ -874,6 +874,10 @@ img { max-width: 100%; }
   font-size: 12px;
   font-family: var(--mono);
   color: var(--text3);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .project-highlights { margin-bottom: 20px; }
@@ -1039,6 +1043,9 @@ img { max-width: 100%; }
   opacity: 1;
   transform: none;
 }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
@@ -1134,13 +1141,14 @@ input, textarea, select, label, .nav-cta, .btn, .mobile-nav,
    RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {
-  .hero-content { grid-template-columns: 1fr; }
+  .hero-content { grid-template-columns: 1fr; gap: 40px; }
   .hero-right { display: none; }
   .about-grid { grid-template-columns: 1fr; }
   .skills-layout { grid-template-columns: 1fr; }
   .tech-tags-panel { position: static; }
   .contact-grid { grid-template-columns: 1fr; }
   .project-card.featured { grid-column: auto; display: block; }
+  .project-card.featured .project-visual { min-height: 200px; }
 }
 
 @media (max-width: 768px) {
@@ -1151,6 +1159,15 @@ input, textarea, select, label, .nav-cta, .btn, .mobile-nav,
   .section { padding: 80px 0; }
   .timeline { padding-left: 24px; }
   .footer-inner { justify-content: center; text-align: center; }
+  .container { padding: 0 24px; }
+  .project-body { padding: 20px; }
+  .project-mockup { font-size: 48px; }
+  .project-card.featured .project-mockup { font-size: 64px; }
+  .project-visual { min-height: 150px; }
+  .project-card.featured .project-visual { min-height: 150px; }
+  .about-grid { gap: 40px; }
+  .contact-grid { gap: 40px; }
+  .badge-1, .badge-2 { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -1158,4 +1175,15 @@ input, textarea, select, label, .nav-cta, .btn, .mobile-nav,
   .hero-content { padding: 100px 20px 60px; }
   .hero-name { letter-spacing: -1.5px; }
   .card-stats { gap: 12px; }
+  .section { padding: 60px 0; }
+  .about-grid { gap: 24px; }
+  .contact-grid { gap: 24px; }
+  .projects-grid { gap: 16px; }
+  .project-card { max-width: 100%; }
+  .project-body { padding: 16px; }
+  .project-highlights li { font-size: 12px; }
+  .project-body p { font-size: 14px; }
+  .project-body h3 { font-size: 18px; }
+  .proj-link { padding: 8px 14px; font-size: 13px; }
+  .project-links { flex-wrap: wrap; }
 }
