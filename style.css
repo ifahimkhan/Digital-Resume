@@ -876,6 +876,28 @@ img { max-width: 100%; }
   color: var(--text3);
 }
 
+.project-highlights { margin-bottom: 20px; }
+.project-highlights ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+.project-highlights li {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.5;
+  padding-left: 16px;
+  position: relative;
+}
+.project-highlights li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 .project-links { display: flex; gap: 12px; }
 .proj-link {
   display: inline-flex;

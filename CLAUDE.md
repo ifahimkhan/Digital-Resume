@@ -4,31 +4,46 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A static HTML/CSS digital resume website for Mohammed Fahim Khan, hosted via GitHub Pages at `https://ifahimkhan.github.io/Digital-Resume/`.
+A static HTML/CSS/JS digital resume and portfolio for Mohammed Fahim Khan, hosted via GitHub Pages at `https://ifahimkhan.github.io/Digital-Resume/`.
 
-No build system, package manager, or JavaScript framework — pure HTML and CSS. Open any `.html` file directly in a browser to preview.
+No build system, package manager, or framework. Pure HTML, CSS, and vanilla JavaScript. Open `index.html` directly in a browser to preview.
 
-## File Structure
+## Architecture
 
-- `index.html` — Main resume page
-- `styles/main.css` — Single stylesheet for all pages
-- `assets/` — Images and the downloadable PDF resume (`Fahim_Resume.pdf`)
-- `chessClock.html`, `mindreaderapp.html`, `mindreader-privacy-policy.html`, `project1.html` — Additional project/app pages
+### Core files
 
-## Theme Switching
+| File | Purpose |
+|------|---------|
+| `index.html` | Main portfolio page — all sections (hero, about, skills, experience, projects, contact) live here as inline HTML |
+| `style.css` | Primary stylesheet (root-level) — design system variables, all component styles, light/dark themes, responsive breakpoints |
+| `script.js` | All interactivity — theme toggle, loader, custom cursor, navbar scroll, hamburger menu, typing animation, scroll-reveal, stat counters, contact form |
+| `styles/main.css` | **Legacy** stylesheet from an older version of the site; not linked by `index.html` |
 
-The site defaults to **dark mode**. To switch to light mode, edit the CSS variable assignments in `styles/main.css` under `:root`:
+### Standalone pages
 
-```css
---mainTextColor: var(--mainTextColor-light);
---secondaryTextColor: var(--secondaryTextColor-light);
---mainLinkColor: var(--mainLinkColor-light);
---mainBorderColor: var(--mainBorderColor-light);
---mainBgColor: var(--mainBgColor-light);
-```
+`chessClock.html`, `mindreaderapp.html`, `mindreader-privacy-policy.html`, `project1.html` — separate project/app landing pages with their own inline styles. These are independent of the main portfolio's design system.
 
-Both light and dark color tokens are defined in `:root`; only the active assignments (lines 16–20) need to change.
+### Assets
+
+- `assets/Fahim_Resume.pdf` — downloadable resume linked from the About section
+- `assets/images/` — profile photo and preview screenshots
+
+## Design System
+
+CSS custom properties are defined in `:root` (dark mode default) and `[data-theme="light"]` in `style.css`:
+
+- Color tokens: `--bg`, `--bg2`, `--bg3`, `--card`, `--card2`, `--accent`, `--accent2`, `--text`, `--text2`, `--text3`, `--border`, `--border2`
+- Typography: `--mono` (JetBrains Mono), `--sans` (Space Grotesk)
+- Layout: `--radius`, `--radius-lg`, `--transition`, `--shadow`
+
+Theme switching is JS-driven (`script.js`): toggling the `#themeToggle` checkbox sets `data-theme="light"` on `<html>` and persists to `localStorage`. No manual CSS edits needed.
+
+## Key UI Patterns
+
+- **Projects section**: Cards are hardcoded HTML in `index.html` (`<div class="project-card featured reveal">`), not rendered from a JS data array. To add/remove projects, edit the HTML directly inside `<div class="projects-grid">`.
+- **Scroll animations**: Elements with class `reveal` are animated on scroll via IntersectionObserver in `script.js`.
+- **Responsive breakpoints**: `1024px` (tablet — hero card hidden, grids collapse to single column) and `768px` (mobile — hamburger nav, stacked layouts).
 
 ## Deployment
 
-Changes pushed to the `master` branch are automatically served via GitHub Pages. No CI/CD pipeline — deployment is immediate on push.
+Push to `master` branch deploys automatically via GitHub Pages. No CI/CD pipeline.
