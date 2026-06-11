@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | ShieldCheck Security Companion</title>
+    <meta name="description" content="Privacy Policy for ShieldCheck - a native, local-first Android security companion app. Learn how we secure your device data offline using local encryption.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & DESIGN TOKENS --- */
+        :root[data-theme="dark"] {
+            --bg-color: #070a13;
+            --bg-gradient: radial-gradient(circle at 50% 50%, #0d152b 0%, #060911 100%);
+            --card-bg: rgba(13, 23, 47, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            --accent-primary: #38bdf8; /* Cyan */
+            --accent-primary-rgb: 56, 189, 248;
+            --accent-success: #34d399; /* Emerald */
+            --accent-success-rgb: 52, 211, 153;
+            --accent-warning: #f43f5e; /* Rose */
+            --accent-warning-rgb: 244, 63, 94;
+            --accent-info: #818cf8; /* Indigo */
+            
+            --glow-1: rgba(56, 189, 248, 0.15);
+            --glow-2: rgba(129, 140, 248, 0.12);
+            --scrollbar-bg: #0d152b;
+            --scrollbar-thumb: #1e293b;
+            --scrollbar-thumb-hover: #334155;
+            
+            --nav-active-bg: rgba(56, 189, 248, 0.1);
+            --nav-active-text: #38bdf8;
+            --search-bg: rgba(15, 23, 42, 0.6);
+            --highlight-color: rgba(56, 189, 248, 0.25);
+        }
+
+        :root[data-theme="light"] {
+            --bg-color: #f8fafc;
+            --bg-gradient: radial-gradient(circle at 50% 50%, #f1f5f9 0%, #e2e8f0 100%);
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --card-border: rgba(15, 23, 42, 0.08);
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            
+            --accent-primary: #0284c7; /* Darker Cyan */
+            --accent-primary-rgb: 2, 132, 199;
+            --accent-success: #059669; /* Darker Emerald */
+            --accent-success-rgb: 5, 150, 105;
+            --accent-warning: #e11d48; /* Darker Rose */
+            --accent-warning-rgb: 225, 29, 72;
+            --accent-info: #4f46e5; /* Darker Indigo */
+            
+            --glow-1: rgba(2, 132, 199, 0.08);
+            --glow-2: rgba(79, 70, 229, 0.06);
+            --scrollbar-bg: #f1f5f9;
+            --scrollbar-thumb: #cbd5e1;
+            --scrollbar-thumb-hover: #94a3b8;
+            
+            --nav-active-bg: rgba(2, 132, 199, 0.08);
+            --nav-active-text: #0284c7;
+            --search-bg: rgba(255, 255, 255, 0.95);
+            --highlight-color: rgba(2, 132, 199, 0.2);
+        }
+
+        /* --- GLOBAL RESETS & STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-gradient);
+            background-color: var(--bg-color);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            transition: color 0.3s ease;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.2s ease, opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.9;
+            text-decoration: underline;
+        }
+
+        /* --- BACKGROUND GRADIENT ORBS --- */
+        .decorations {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.8;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--glow-1);
+            top: -10%;
+            left: -10%;
+        }
+
+        .orb-2 {
+            width: 600px;
+            height: 600px;
+            background: var(--glow-2);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 30px) scale(1.1); }
+            100% { transform: translate(-20px, -50px) scale(0.9); }
+        }
+
+        /* --- HEADER STYLES --- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s, border 0.3s;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .nav-logo svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: var(--accent-primary);
+            stroke-width: 2;
+        }
+
+        .logo-text span {
+            color: var(--accent-primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* --- THEME TOGGLE BUTTON --- */
+        .theme-toggle-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            color: var(--text-primary);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-toggle-btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-primary);
+        }
+
+        .theme-toggle-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            transition: transform 0.5s ease;
+        }
+
+        /* Hide specific icons depending on theme */
+        :root[data-theme="dark"] .sun-icon { display: block; }
+        :root[data-theme="dark"] .moon-icon { display: none; }
+        :root[data-theme="light"] .sun-icon { display: none; }
+        :root[data-theme="light"] .moon-icon { display: block; }
+
+        /* --- MAIN LAYOUT CONTEXT --- */
+        .main-container {
+            max-width: 1300px;
+            margin: 2.5rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2.5rem;
+        }
+
+        /* --- SIDEBAR & TOC --- */
+        .sidebar {
+            position: sticky;
+            top: 6rem;
+            height: calc(100vh - 8rem);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            background: var(--search-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(var(--accent-primary-rgb), 0.15);
+        }
+
+        .search-wrapper svg {
+            position: absolute;
+            left: 0.85rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-muted);
+            fill: none;
+            stroke-width: 2.5;
+            pointer-events: none;
+        }
+
+        .toc-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .toc-card h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 0.6rem 0.85rem;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            border-left: 2px solid transparent;
+        }
+
+        .toc-link:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.02);
+            text-decoration: none;
+        }
+
+        .toc-link.active {
+            color: var(--nav-active-text);
+            background: var(--nav-active-bg);
+            border-left-color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        /* --- CONTENT CARD --- */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .policy-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, border 0.3s;
+        }
+
+        /* --- TEXT STYLING --- */
+        .policy-header {
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .policy-header h1 {
+            font-size: 2.75rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.15;
+            background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-item svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* --- SECTIONS --- */
+        .policy-section {
+            padding-top: 1.5rem;
+            margin-bottom: 3.5rem;
+            scroll-margin-top: 6rem;
+        }
+
+        .policy-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .policy-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .policy-section h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        .policy-section p {
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+
+        .policy-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .policy-section li {
+            margin-bottom: 0.5rem;
+            font-size: 1.02rem;
+        }
+
+        /* --- QUICK HIGHLIGHTS GRID (TL;DR) --- */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-item {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: all 0.25s ease;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(var(--accent-primary-rgb), 0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .highlight-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .highlight-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .hi-local {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-primary);
+        }
+        .hi-local svg { stroke: var(--accent-primary); }
+
+        .hi-enc {
+            background: rgba(52, 211, 153, 0.1);
+            color: var(--accent-success);
+        }
+        .hi-enc svg { stroke: var(--accent-success); }
+
+        .hi-open {
+            background: rgba(129, 140, 248, 0.1);
+            color: var(--accent-info);
+        }
+        .hi-open svg { stroke: var(--accent-info); }
+
+        .highlight-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .highlight-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* --- INTERACTIVE PERMISSIONS ACCORDION --- */
+        .permissions-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .permission-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .permission-card:hover {
+            border-color: rgba(var(--accent-primary-rgb), 0.25);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .permission-trigger {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .perm-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .badge-risk {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-critical {
+            background: rgba(244, 63, 94, 0.15);
+            color: var(--accent-warning);
+            border: 1px solid rgba(244, 63, 94, 0.2);
+        }
+
+        .badge-high {
+            background: rgba(244, 63, 94, 0.1);
+            color: var(--accent-warning);
+            border: 1px solid rgba(244, 63, 94, 0.15);
+        }
+
+        .badge-medium {
+            background: rgba(245, 158, 11, 0.12);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .badge-low {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-primary);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+        }
+
+        .perm-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .perm-trigger svg.chevron {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-muted);
+            fill: none;
+            stroke-width: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .permission-card.expanded svg.chevron {
+            transform: rotate(180deg);
+            stroke: var(--accent-primary);
+        }
+
+        /* CSS Grid-based transition height auto */
+        .permission-details {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease-in-out;
+        }
+
+        .permission-details-content {
+            overflow: hidden;
+        }
+
+        .permission-card.expanded .permission-details {
+            grid-template-rows: 1fr;
+        }
+
+        .details-inner {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .details-inner strong {
+            color: var(--text-primary);
+        }
+
+        /* --- TECH SPECS CARD --- */
+        .security-tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .security-tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .tech-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-card h4 svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent-primary);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .tech-card p {
+            font-size: 0.92rem;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        /* --- SEARCH EMPTY STATE --- */
+        .search-empty {
+            display: none;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(255,255,255,0.01);
+            border: 1px dashed var(--card-border);
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .search-empty svg {
+            width: 48px;
+            height: 48px;
+            stroke: var(--text-muted);
+            fill: none;
+            stroke-width: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .search-empty h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        /* --- CONTACT CARD --- */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(var(--accent-primary-rgb), 0.08) 0%, rgba(129, 140, 248, 0.05) 100%);
+            border: 1px solid rgba(var(--accent-primary-rgb), 0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-box {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem;
+            }
+        }
+
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-text p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-btn {
+            background: var(--accent-primary);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(var(--accent-primary-rgb), 0.3);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-btn svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.5;
+        }
+
+        .contact-btn:hover {
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(var(--accent-primary-rgb), 0.4);
+            filter: brightness(1.05);
+        }
+
+        /* --- FOOTER STYLES --- */
+        .footer {
+            border-top: 1px solid var(--card-border);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            background: rgba(0,0,0,0.1);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: var(--accent-primary);
+            stroke-width: 2;
+        }
+
+        /* --- RESPONSIVE LAYOUTS --- */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+            }
+
+            .toc-card {
+                display: none; /* Hide Table of Contents on mobile for cleaner page */
+            }
+
+            .policy-card {
+                padding: 2rem;
+            }
+
+            .policy-header h1 {
+                font-size: 2.25rem;
+            }
+        }
+
+        /* --- MARK SEARCH TEXT HIGHLIGHT --- */
+        mark {
+            background-color: var(--highlight-color);
+            color: var(--text-primary);
+            border-radius: 2px;
+            padding: 0 2px;
+        }
+
+        /* --- PRINT STYLES --- */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                font-size: 12pt;
+            }
+            .navbar, .decorations, .sidebar, .theme-toggle-btn, .contact-btn, .footer {
+                display: none !important;
+            }
+            .main-container {
+                grid-template-columns: 1fr !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .policy-card {
+                border: none !important;
+                background: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+            .policy-header h1 {
+                color: #000000 !important;
+                background: none !important;
+                -webkit-text-fill-color: initial !important;
+            }
+            .permission-card {
+                border: 1px solid #cccccc !important;
+                page-break-inside: avoid;
+            }
+            .permission-details {
+                grid-template-rows: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Orbs -->
+    <div class="decorations">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="app-nav">
+        <div class="nav-logo" id="nav-logo">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <div class="logo-text">Shield<span>Check</span></div>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle visual theme">
+                <!-- Sun Icon (for dark mode -> transitions to light) -->
+                <svg class="sun-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <!-- Moon Icon (for light mode -> transitions to dark) -->
+                <svg class="moon-icon" viewBox="0 0 24 24">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="main-container" id="main-content">
+        
+        <!-- Sidebar Navigation & Search -->
+        <aside class="sidebar" id="sidebar-aside">
+            <div class="search-wrapper">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="search-box" class="search-input" placeholder="Search privacy topics..." aria-label="Search privacy policy contents">
+            </div>
+            
+            <nav class="toc-card" aria-label="Privacy Policy Chapters">
+                <h3>Contents</h3>
+                <ul class="toc-list" id="toc-list">
+                    <li><a href="#summary" class="toc-link">Quick Summary</a></li>
+                    <li><a href="#data-collection" class="toc-link">Data We Process</a></li>
+                    <li><a href="#permissions" class="toc-link">App Permissions</a></li>
+                    <li><a href="#security" class="toc-link">Data Security & Encryption</a></li>
+                    <li><a href="#data-sharing" class="toc-link">Third Parties & Sharing</a></li>
+                    <li><a href="#retention" class="toc-link">Data Retention</a></li>
+                    <li><a href="#your-rights" class="toc-link">Your Rights & Choices</a></li>
+                    <li><a href="#contact" class="toc-link">Contact & Open Source</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area" aria-label="Privacy Policy Details">
+            <article class="policy-card">
+                
+                <!-- Header -->
+                <header class="policy-header">
+                    <h1>Privacy Policy</h1>
+                    <div class="meta-info">
+                        <div class="meta-item">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>Effective Date: June 11, 2026</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <span>ShieldCheck Security Companion</span>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- 1. Quick Summary (TL;DR) -->
+                <section id="summary" class="policy-section search-target">
+                    <h2>Quick Summary (TL;DR)</h2>
+                    <p>
+                        ShieldCheck is built with a <strong>privacy-first, offline-local</strong> philosophy. The app helps you audit security risks on your device without harvesting your information. Here is the core of our commitment to you:
+                    </p>
+                    
+                    <div class="highlights-grid">
+                        <div class="highlight-item">
+                            <div class="highlight-icon hi-local">
+                                <svg viewBox="0 0 24 24"><path d="M2 20h20M5 17V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v12"></path></svg>
+                            </div>
+                            <h4>100% Offline Scanning</h4>
+                            <p>All app audits, device checks, and network port analysis happen strictly on your device.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon hi-enc">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            </div>
+                            <h4>Secure Local Storage</h4>
+                            <p>Data is saved in a 256-bit SQLCipher encrypted database, locked by hardware Keystore keys.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon hi-open">
+                                <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                            <h4>Verify & Open Source</h4>
+                            <p>Our source code is fully open and auditable under the MIT license, verifying these privacy claims.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Data We Process -->
+                <section id="data-collection" class="policy-section search-target">
+                    <h2>Information We Process</h2>
+                    <p>
+                        Unlike typical security tools, ShieldCheck <strong>does not upload, sell, or monitor your personal data</strong>. The information we process never leaves your phone:
+                    </p>
+                    <ul>
+                        <li><strong>Installed Application Information:</strong> We read the names, package identifiers, and permission requirements of your installed apps to evaluate permission risks. This assessment is calculated locally in our proprietary risk scoring system.</li>
+                        <li><strong>Usage Statistics:</strong> If explicitly granted, we check app usage details locally to discover if high-risk permissions are actively being utilized by background apps.</li>
+                        <li><strong>Diagnostic & Device Status:</strong> We inspect system flags such as root status, storage encryption, screen lock status, and developer parameters (USB debugging) to compute your aggregate device security score.</li>
+                        <li><strong>Local Network Infrastructure:</strong> We check active WiFi attributes (e.g. security configuration, local IP address, active VPN connection) and inspect local ports on common channels to locate active network risks.</li>
+                    </ul>
+                </section>
+
+                <!-- 3. App Permissions Directory -->
+                <section id="permissions" class="policy-section search-target">
+                    <h2>Permissions ShieldCheck Requires</h2>
+                    <p>
+                        To conduct security diagnostics, Android requires ShieldCheck to declare specific permissions. Below is an interactive map detailing every high-level permission requested, its risk score weight within the app, and why we request it:
+                    </p>
+                    
+                    <div class="permissions-container" id="permissions-accordion">
+                        
+                        <!-- Permission Item 1 -->
+                        <div class="permission-card">
+                            <button class="permission-trigger" aria-expanded="false">
+                                <span class="perm-left">
+                                    <span class="badge-risk badge-high">High Risk</span>
+                                    <span class="perm-name">Query All Packages</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="permission-details">
+                                <div class="permission-details-content">
+                                    <div class="details-inner">
+                                        <p><strong>System API Name:</strong> <code>android.permission.QUERY_ALL_PACKAGES</code></p>
+                                        <p><strong>Purpose:</strong> Required for the "App Permission Auditor" feature. Without this permission, Android prevents ShieldCheck from listing third-party applications, which is essential to assess which background applications hold critical permissions like access to your Camera, Microphone, or Location.</p>
+                                        <p><strong>Security Guarantee:</strong> This information is compiled into a local UI checklist, mapped against risk weights, and stored inside the local database. No list of applications is ever transferred off your device.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Permission Item 2 -->
+                        <div class="permission-card">
+                            <button class="permission-trigger" aria-expanded="false">
+                                <span class="perm-left">
+                                    <span class="badge-risk badge-medium">Medium Risk</span>
+                                    <span class="perm-name">Usage Statistics Access</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="permission-details">
+                                <div class="permission-details-content">
+                                    <div class="details-inner">
+                                        <p><strong>System API Name:</strong> <code>android.permission.PACKAGE_USAGE_STATS</code></p>
+                                        <p><strong>Purpose:</strong> Optional permission granted manually through system settings. Used to inspect when and how frequently other apps run, allowing ShieldCheck to notice if an app with high-risk permissions is executing suspicious background routines.</p>
+                                        <p><strong>Security Guarantee:</strong> Data queried is purely diagnostic. It is read dynamically and is not written to permanent local storage, nor is it transmitted to any external API.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Permission Item 3 -->
+                        <div class="permission-card">
+                            <button class="permission-trigger" aria-expanded="false">
+                                <span class="perm-left">
+                                    <span class="badge-risk badge-low">Low Risk</span>
+                                    <span class="perm-name">Network & WiFi State Access</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="permission-details">
+                                <div class="permission-details-content">
+                                    <div class="details-inner">
+                                        <p><strong>System API Name:</strong> <code>android.permission.ACCESS_NETWORK_STATE</code>, <code>android.permission.ACCESS_WIFI_STATE</code></p>
+                                        <p><strong>Purpose:</strong> Used by the "Network Security Scanner" to retrieve network diagnostics. We check the active SSID, protocol type (WEP, WPA2, WPA3), check if an active VPN tunnel is routing system packets, and obtain your local network subnet range.</p>
+                                        <p><strong>Security Guarantee:</strong> Network checks are strictly passive and local. Information is only used to warn you if your WiFi configuration lacks modern security safeguards.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Permission Item 4 -->
+                        <div class="permission-card">
+                            <button class="permission-trigger" aria-expanded="false">
+                                <span class="perm-left">
+                                    <span class="badge-risk badge-low">Low Risk</span>
+                                    <span class="perm-name">Internet Access</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="permission-details">
+                                <div class="permission-details-content">
+                                    <div class="details-inner">
+                                        <p><strong>System API Name:</strong> <code>android.permission.INTERNET</code></p>
+                                        <p><strong>Purpose:</strong> Although ShieldCheck does not connect to external servers, Android requires this permission to run local socket operations. This enables our scanner to query common local port interfaces on the loopback (`127.0.0.1`) and local IP ranges to warn you about vulnerable open ports.</p>
+                                        <p><strong>Security Guarantee:</strong> This socket communication is purely inward-facing. No outgoing telemetry packets are sent over the WAN.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 4. Data Security & Encryption -->
+                <section id="security" class="policy-section search-target">
+                    <h2>Data Security & Encryption</h2>
+                    <p>
+                        We treat your local diagnostic logs with security matching corporate data protection protocols. ShieldCheck employs three layers of cryptographic isolation to safeguard scanning history:
+                    </p>
+                    
+                    <div class="security-tech-grid">
+                        <div class="tech-card">
+                            <h4>
+                                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                SQLCipher DB Encryption
+                            </h4>
+                            <p>
+                                All historical audit logs and scan parameters are saved in a local SQLite Room database, encrypted at-rest using 256-bit AES database encryption through SQLCipher. This prevents rogue malware or root explorer applications from reading ShieldCheck data.
+                            </p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>
+                                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                                Android Keystore Integration
+                            </h4>
+                            <p>
+                                The master key used to seal the database is generated and held securely within the device's hardware-backed Keystore system. The key cannot be extracted by the software OS and remains isolated inside a secure enclave (TEE/StrongBox).
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Third Parties & Sharing -->
+                <section id="data-sharing" class="policy-section search-target">
+                    <h2>Third Parties and Data Sharing</h2>
+                    <p>
+                        Since we do not run application servers, cloud databases, or track crash metrics remotely, <strong>we do not collect, share, lease, or distribute your information to any third parties</strong>.
+                    </p>
+                    <ul>
+                        <li><strong>No Tracking Analytics:</strong> We do not integrate telemetry SDKs like Google Analytics, Firebase Analytics, Mixpanel, or Flurry.</li>
+                        <li><strong>No Advertising SDKs:</strong> There are no advertising scripts, software trackers, or cookies built into our binary.</li>
+                        <li><strong>Zero Third-Party APIs:</strong> ShieldCheck does not query online APIs for data parsing or categorization. All security rules are bundled statically inside the app.</li>
+                    </ul>
+                </section>
+
+                <!-- 6. Data Retention -->
+                <section id="retention" class="policy-section search-target">
+                    <h2>Data Retention</h2>
+                    <p>
+                        Your diagnostic scans are stored locally on your device indefinitely to render your historical privacy trends. 
+                    </p>
+                    <p>
+                        This data will remain on your device unless:
+                    </p>
+                    <ul>
+                        <li>You select the "Clear History" option in ShieldCheck Settings.</li>
+                        <li>You uninstall ShieldCheck from your device. Under standard Android processes, the local Keystore keys and the encrypted SQLite database are permanently wiped by the Android OS upon app deletion.</li>
+                    </ul>
+                </section>
+
+                <!-- 7. Your Rights & Choices -->
+                <section id="your-rights" class="policy-section search-target">
+                    <h2>Your Rights and Choices</h2>
+                    <p>
+                        Because ShieldCheck processes everything on your device, you maintain full control over your diagnostic parameters:
+                    </p>
+                    <ul>
+                        <li><strong>Revoke Permissions:</strong> You can modify or completely disable access to Usage Statistics or Network information by navigating to <em>Settings > Apps > ShieldCheck > Permissions</em> on your Android device.</li>
+                        <li><strong>Local Wipes:</strong> You can clear the entire scan database at any point from within ShieldCheck's in-app Settings panel or via the system's "Clear Data" option in Settings.</li>
+                    </ul>
+                </section>
+
+                <!-- 8. Contact & Open Source -->
+                <section id="contact" class="policy-section search-target">
+                    <h2>Verify Our Policies</h2>
+                    <p>
+                        We believe that security claims must be verifiable. You do not need to take our word for how your data is protected. ShieldCheck is completely open-source under the MIT license, allowing the security community to audit every line of code.
+                    </p>
+                    <p>
+                        If you have questions about our local-first implementation, key architecture decisions, or need details about device storage security, you can view the repository or get in touch:
+                    </p>
+                    
+                    <div class="contact-box">
+                        <div class="contact-text">
+                            <h4>ShieldCheck GitHub Repository</h4>
+                            <p>Browse the source code, check key handlers, and view our database setup.</p>
+                        </div>
+                        <a href="https://github.com/ifahimkhan/ShieldCheck" class="contact-btn" target="_blank" rel="noopener noreferrer" id="btn-github">
+                            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            View Repository
+                        </a>
+                    </div>
+                </section>
+
+            </article>
+            
+            <!-- Dynamic Search Empty State -->
+            <div class="search-empty" id="search-empty-state">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <h4>No Matching Policy Sections Found</h4>
+                <p>Try searching for terms like "SQLCipher", "Internet", or "Packages".</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>ShieldCheck Security</span>
+        </div>
+        <p>&copy; 2026 ShieldCheck. MIT License. Distributed for privacy-aware Android auditing.</p>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LAYER -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. THEME SWITCHER LOGIC ---
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const rootElement = document.documentElement;
+            
+            // Retrieve system preference or cached choice
+            const savedTheme = localStorage.getItem('shieldcheck-theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            let activeTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+            rootElement.setAttribute('data-theme', activeTheme);
+            
+            themeToggleBtn.addEventListener('click', () => {
+                const nextTheme = rootElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                rootElement.setAttribute('data-theme', nextTheme);
+                localStorage.setItem('shieldcheck-theme', nextTheme);
+            });
+            
+            // --- 2. ACCORDION LOGIC FOR PERMISSIONS ---
+            const accordionHeaders = document.querySelectorAll('.permission-trigger');
+            
+            accordionHeaders.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const card = trigger.parentElement;
+                    const isExpanded = card.classList.contains('expanded');
+                    
+                    // Collapse all others (Optional - but makes it cleaner)
+                    document.querySelectorAll('.permission-card').forEach(c => {
+                        if (c !== card) {
+                            c.classList.remove('expanded');
+                            c.querySelector('.permission-trigger').setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                    
+                    if (isExpanded) {
+                        card.classList.remove('expanded');
+                        trigger.setAttribute('aria-expanded', 'false');
+                    } else {
+                        card.classList.add('expanded');
+                        trigger.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            // --- 3. DYNAMIC SEARCH & FILTER SYSTEM ---
+            const searchBox = document.getElementById('search-box');
+            const sections = document.querySelectorAll('.search-target');
+            const emptyState = document.getElementById('search-empty-state');
+            
+            searchBox.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                let visibleCount = 0;
+                
+                sections.forEach(section => {
+                    const sectionText = section.textContent.toLowerCase();
+                    const parentCard = section.closest('.policy-card');
+                    
+                    // Simple hide/show logic based on keyword matching
+                    if (query === '' || sectionText.includes(query)) {
+                        section.style.display = 'block';
+                        visibleCount++;
+                        
+                        // If it matches a permission card inside, expand it
+                        if (query !== '' && section.id === 'permissions') {
+                            const permissionCards = section.querySelectorAll('.permission-card');
+                            permissionCards.forEach(card => {
+                                const cardText = card.textContent.toLowerCase();
+                                if (cardText.includes(query)) {
+                                    card.classList.add('expanded');
+                                    card.querySelector('.permission-trigger').setAttribute('aria-expanded', 'true');
+                                } else {
+                                    card.classList.remove('expanded');
+                                    card.querySelector('.permission-trigger').setAttribute('aria-expanded', 'false');
+                                }
+                            });
+                        }
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+                
+                // Show/hide empty state
+                if (visibleCount === 0) {
+                    emptyState.style.display = 'block';
+                } else {
+                    emptyState.style.display = 'none';
+                }
+            });
+
+            // --- 4. SCROLL SPY FOR TABLE OF CONTENTS ---
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const scrollTargets = document.querySelectorAll('.policy-section');
+            
+            const observerOptions = {
+                root: null, // Viewport
+                rootMargin: '-20% 0px -60% 0px', // Center active element trigger
+                threshold: 0
+            };
+            
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetId = entry.target.getAttribute('id');
+                        
+                        tocLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${targetId}`) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            };
+            
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            scrollTargets.forEach(target => observer.observe(target));
+            
+            // Clean active states when at the absolute top
+            window.addEventListener('scroll', () => {
+                if (window.scrollY < 100) {
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    const firstLink = document.querySelector('.toc-link[href="#summary"]');
+                    if (firstLink) firstLink.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
